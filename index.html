@@ -43,8 +43,12 @@
     <div class="max-w-xs w-full text-center">
         <!-- Minimal Header -->
         <img src="icon.png" alt="App Icon" class="app-icon mx-auto">
-        <h1 class="text-2xl font-semibold tracking-tight mb-1">自我</h1>
-        <p class="text-gray-400 text-sm mb-8">版本 1.0.0</p>
+        <h1 class="text-3xl font-bold tracking-tight mb-2">自我</h1>
+        <p class="text-blue-600 text-sm font-medium mb-2">一个照顾您心灵的App</p>
+        <div class="text-gray-400 text-xs space-y-1 mb-10">
+            <p>版本 1.0.0</p>
+            <p>开发者：屹涵</p>
+        </div>
         
         <!-- Action -->
         <a href="itms-services://?action=download-manifest&url=https://myself-app-design.github.io/ziwo/manifest.plist" 
@@ -54,21 +58,40 @@
 
         <div class="divider"></div>
 
-        <!-- Minimal Instructions -->
-        <div class="text-left">
-            <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">安装说明</h2>
-            <ul class="text-sm text-gray-500 space-y-3 leading-relaxed">
-                <li>1. 点击“安装”并确认对话框</li>
-                <li>2. 安装完成后，前往“设置”</li>
-                <li>3. 通用 > 描述文件与设备管理</li>
-                <li>4. 信任此企业级应用</li>
+        <!-- Detailed Instructions -->
+        <div class="text-left bg-gray-50 rounded-2xl p-6">
+            <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">安装及信任步骤</h2>
+            <ul class="text-sm text-gray-600 space-y-4 leading-relaxed">
+                <li class="flex gap-3">
+                    <span class="flex-none w-5 h-5 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-[10px] font-bold">1</span>
+                    <span>点击上方“<strong>安装</strong>”按钮，在弹出的系统提示中选择“安装”。</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="flex-none w-5 h-5 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-[10px] font-bold">2</span>
+                    <span>等待桌面图标下载并安装完成（若无反应请检查网络或刷新页面）。</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="flex-none w-5 h-5 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-[10px] font-bold">3</span>
+                    <span>打开手机“<strong>设置</strong>” > “<strong>通用</strong>”。</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="flex-none w-5 h-5 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-[10px] font-bold">4</span>
+                    <span>找到“<strong>描述文件与设备管理</strong>”（或“VPN与设备管理”）。</span>
+                </li>
+                <li class="flex gap-3">
+                    <span class="flex-none w-5 h-5 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-[10px] font-bold">5</span>
+                    <span>点击对应的企业级开发者名称，并选择“<strong>信任</strong>”即可开始使用。（设备可能会重启一次）</span>
+                </li>
             </ul>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="mt-20 text-gray-300 text-[10px] tracking-wider uppercase">
-        Enterprise Distribution Center
+    <footer class="mt-20 text-center">
+        <a href="https://myself-app-design.github.io/privacy/" class="text-blue-500 text-xs hover:underline mb-4 inline-block">隐私政策</a>
+        <div class="text-gray-300 text-[10px] tracking-wider uppercase">
+            Enterprise Distribution Center
+        </div>
     </footer>
 
     <script>
