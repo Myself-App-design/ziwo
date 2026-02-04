@@ -1,103 +1,199 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="transition-colors duration-300">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>自我 - 应用安装</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>自我 - 照顾您心灵的App</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        apple: {
+                            blue: '#007AFF',
+                            gray: '#8E8E93',
+                            bg: '#F2F2F7',
+                            darkBg: '#1C1C1E',
+                            card: '#FFFFFF',
+                            darkCard: '#2C2C2E'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
         body {
-            background-color: #ffffff;
-            font-family: -apple-system, system-ui, sans-serif;
-            color: #1d1d1f;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
+
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
         .app-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 22px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-bottom: 24px;
-            object-fit: cover;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
+
+        .app-icon:active {
+            transform: scale(0.92);
+        }
+
         .btn-primary {
-            background-color: #007aff;
-            color: white;
-            padding: 12px 32px;
-            border-radius: 99px;
-            font-weight: 500;
-            transition: all 0.2s ease;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         .btn-primary:active {
-            background-color: #0056b3;
-            transform: scale(0.98);
+            transform: scale(0.96);
+            opacity: 0.9;
         }
-        .divider {
-            height: 1px;
-            background-color: #f5f5f7;
-            width: 100%;
-            margin: 40px 0;
+
+        .dark .app-icon {
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen p-8">
-    <div class="max-w-xs w-full text-center">
-        <!-- Minimal Header -->
-        <img src="icon.png" alt="App Icon" class="app-icon mx-auto">
-        <h1 class="text-3xl font-bold tracking-tight mb-2">自我</h1>
-        <p class="text-blue-600 text-sm font-medium mb-2">一个照顾您心灵的App</p>
-        <div class="text-gray-400 text-xs space-y-1 mb-10">
-            <p>版本 1.0.0</p>
-            <p>开发者：屹涵</p>
-        </div>
-        
-        <!-- Action -->
-        <a href="itms-services://?action=download-manifest&url=https://myself-app-design.github.io/ziwo/manifest.plist" 
-           class="btn-primary inline-block w-full">
-            安装
-        </a>
-
-        <div class="divider"></div>
-
-        <!-- Detailed Instructions -->
-        <div class="text-left bg-gray-50 rounded-2xl p-6">
-            <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">安装及信任步骤</h2>
-            <ul class="text-sm text-gray-600 space-y-4 leading-relaxed">
-                <li class="flex gap-3">
-                    <span class="flex-none w-5 h-5 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-[10px] font-bold">1</span>
-                    <span>点击上方“<strong>安装</strong>”按钮，在弹出的系统提示中选择“安装”。</span>
-                </li>
-                <li class="flex gap-3">
-                    <span class="flex-none w-5 h-5 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-[10px] font-bold">2</span>
-                    <span>等待桌面图标下载并安装完成（若无反应请检查网络或刷新页面）。</span>
-                </li>
-                <li class="flex gap-3">
-                    <span class="flex-none w-5 h-5 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-[10px] font-bold">3</span>
-                    <span>打开手机“<strong>设置</strong>” > “<strong>通用</strong>”。</span>
-                </li>
-                <li class="flex gap-3">
-                    <span class="flex-none w-5 h-5 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-[10px] font-bold">4</span>
-                    <span>找到“<strong>描述文件与设备管理</strong>”（或“VPN与设备管理”）。</span>
-                </li>
-                <li class="flex gap-3">
-                    <span class="flex-none w-5 h-5 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-[10px] font-bold">5</span>
-                    <span>点击对应的企业级开发者名称，并选择“<strong>信任</strong>”即可开始使用。（设备可能会重启一次）</span>
-                </li>
-            </ul>
-        </div>
+<body class="bg-apple-bg dark:bg-black text-black dark:text-white min-h-screen flex flex-col transition-colors duration-300">
+    
+    <!-- Theme Toggle -->
+    <div class="fixed top-6 right-6 z-50">
+        <button onclick="toggleTheme()" class="p-3 rounded-full bg-white/80 dark:bg-apple-darkCard/80 glass-effect shadow-sm border border-gray-200 dark:border-gray-800 transition-all active:scale-90">
+            <svg id="sun-icon" class="w-5 h-5 hidden dark:block text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
+            </svg>
+            <svg id="moon-icon" class="w-5 h-5 block dark:hidden text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+            </svg>
+        </button>
     </div>
 
-    <!-- Footer -->
-    <footer class="mt-20 text-center">
-        <a href="https://myself-app-design.github.io/privacy/" class="text-blue-500 text-xs hover:underline mb-4 inline-block">隐私政策</a>
-        <div class="text-gray-300 text-[10px] tracking-wider uppercase">
-            Enterprise Distribution Center
+    <main class="flex-grow flex flex-col items-center justify-center px-6 py-20 max-w-lg mx-auto w-full">
+        <!-- App Identity -->
+        <div class="text-center mb-12">
+            <img src="icon.png" alt="App Icon" class="app-icon w-28 h-28 rounded-[24%] mx-auto mb-6 object-cover">
+            <h1 class="text-4xl font-bold tracking-tight mb-2">自我</h1>
+            <p class="text-apple-blue dark:text-blue-400 font-medium text-lg mb-2">一个照顾您心灵的App</p>
+            <div class="flex items-center justify-center gap-3 text-apple-gray dark:text-gray-500 text-sm">
+                <span>版本 1.0.0</span>
+                <span class="w-1 h-1 bg-gray-300 rounded-full"></span>
+                <span>开发者：屹涵</span>
+            </div>
         </div>
+
+        <!-- Main Actions -->
+        <div class="w-full space-y-4 mb-12">
+            <a href="itms-services://?action=download-manifest&url=https://myself-app-design.github.io/ziwo/manifest.plist" 
+               class="btn-primary flex items-center justify-center w-full py-4 bg-apple-blue text-white rounded-2xl font-semibold text-lg shadow-lg shadow-blue-500/20">
+                立即安装
+            </a>
+
+            <!-- Backup Card -->
+            <div class="p-5 bg-white dark:bg-apple-darkCard rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm transition-colors">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-[11px] font-bold text-apple-gray uppercase tracking-widest">备用链接</span>
+                    <span class="text-[11px] px-2 py-0.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full">蓝奏云</span>
+                </div>
+                <div class="flex items-center justify-between gap-4">
+                    <a href="https://wwbuy.lanzouq.com/iKywq3hrk6dc" target="_blank" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-apple-blue transition-colors truncate">
+                        wwbuy.lanzouq.com/iKywq3hrk6dc
+                    </a>
+                    <button onclick="copyPassword('5vm4')" id="copy-btn" class="flex-none flex items-center gap-1.5 px-3 py-1.5 bg-apple-bg dark:bg-apple-darkBg text-apple-blue dark:text-blue-400 rounded-xl text-xs font-semibold active:scale-95 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                        </svg>
+                        复制密码
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="w-full">
+            <h2 class="text-[11px] font-bold text-apple-gray dark:text-gray-500 uppercase tracking-widest mb-6 px-1">安装指南</h2>
+            <div class="space-y-6">
+                <div class="flex gap-4">
+                    <div class="flex-none w-6 h-6 rounded-full bg-white dark:bg-apple-darkCard flex items-center justify-center text-xs font-bold shadow-sm text-apple-blue">1</div>
+                    <p class="text-[15px] text-gray-600 dark:text-gray-400 leading-snug">点击“<strong>立即安装</strong>”，在系统弹窗中确认。</p>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-none w-6 h-6 rounded-full bg-white dark:bg-apple-darkCard flex items-center justify-center text-xs font-bold shadow-sm text-apple-blue">2</div>
+                    <p class="text-[15px] text-gray-600 dark:text-gray-400 leading-snug">等待桌面图标下载完成（若无响应请刷新页面）。</p>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-none w-6 h-6 rounded-full bg-white dark:bg-apple-darkCard flex items-center justify-center text-xs font-bold shadow-sm text-apple-blue">3</div>
+                    <p class="text-[15px] text-gray-600 dark:text-gray-400 leading-snug">前往“<strong>设置</strong>” > “<strong>通用</strong>” > “<strong>VPN与设备管理</strong>”。</p>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-none w-6 h-6 rounded-full bg-white dark:bg-apple-darkCard flex items-center justify-center text-xs font-bold shadow-sm text-apple-blue">4</div>
+                    <p class="text-[15px] text-gray-600 dark:text-gray-400 leading-snug">点击企业开发者，选择“<strong>信任</strong>”即可开启。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 text-center space-y-4">
+        <a href="https://myself-app-design.github.io/privacy/" class="text-sm font-medium text-apple-blue dark:text-blue-400 hover:opacity-70 transition-opacity">
+            隐私政策
+        </a>
+        <p class="text-[10px] text-apple-gray dark:text-gray-600 font-bold uppercase tracking-[0.2em]">
+            Enterprise Distribution Center
+        </p>
     </footer>
 
     <script>
-        // HTTPS Check
-        if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
-            console.warn("Note: iOS installation requires HTTPS.");
+        // Theme Management
+        function setTheme(isDark) {
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            }
+        }
+
+        function toggleTheme() {
+            setTheme(!document.documentElement.classList.contains('dark'));
+        }
+
+        // Initialize theme
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            setTheme(true);
+        } else {
+            setTheme(false);
+        }
+
+        // Copy Password
+        function copyPassword(pw) {
+            const btn = document.getElementById('copy-btn');
+            const originalHTML = btn.innerHTML;
+            
+            navigator.clipboard.writeText(pw).then(() => {
+                btn.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    已复制
+                `;
+                btn.classList.replace('text-apple-blue', 'text-green-500');
+                btn.classList.replace('dark:text-blue-400', 'dark:text-green-400');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.classList.replace('text-green-500', 'text-apple-blue');
+                    btn.classList.replace('dark:text-green-400', 'dark:text-blue-400');
+                }, 2000);
+            }).catch(() => {
+                alert('密码: ' + pw);
+            });
         }
     </script>
 </body>
